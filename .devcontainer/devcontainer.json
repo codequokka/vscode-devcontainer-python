@@ -1,0 +1,19 @@
+{
+    "name": "python devcontainer development",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode": {
+            // "settings": {
+            //     "dotfiles.repository": "https://github.com/codequokka/dotfiles.git",
+            //     "dotfiles.targetPath": "~/dotfiles",
+            //     "dotfiles.installCommand": "~/dotfiles/install.sh"
+            // },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.mypy-type-checker",
+                "charliermarsh.ruff"
+            ]
+        }
+    }
+}

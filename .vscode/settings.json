@@ -1,0 +1,28 @@
+{
+    // Editor
+    "editor.formatOnSave": true,
+    // Python
+    "python.defaultInterpreterPath": "python3",
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.languageServer": "Pylance",
+    // "python.linting.enabled": true,
+    // "python.linting.mypyEnabled": true,
+    // "python.linting.pylintEnabled": false,
+    // "python.linting.pycodestyleEnabled": false,
+    // "python.linting.flake8Enabled": true,
+    // "python.linting.flake8Args": [],
+    // "python.formatting.provider": "black",
+    // "python.formatting.blackArgs": [
+    //     "--line-length=79"
+    // ],
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter",
+    },
+}
