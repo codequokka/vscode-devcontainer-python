@@ -1,6 +1,6 @@
 {
   "name": "devcontainer-python",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:3.8-bookworm",
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
@@ -22,6 +22,10 @@
         "remote.autoForwardPorts": false,
         // Python
         "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.languageServer": "Pylance",
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.typeCheckingMode": "strict",
+        "python.analysis.completeFunctionParens": true,
         "python.testing.pytestArgs": ["tests", "--capture=tee-sys", "-vv"],
         "python.testing.pytestEnabled": true,
         "[python]": {
@@ -56,10 +60,6 @@
 }
 
 // {
-//     "python.analysis.completeFunctionParens": true,
-//     "python.analysis.typeCheckingMode": "strict",
-//     "python.analysis.diagnosticMode": "workspace",
-//     "python.languageServer": "Pylance",
 //     // "python.linting.enabled": true,
 //     // "python.linting.mypyEnabled": true,
 //     // "python.linting.pylintEnabled": false,
