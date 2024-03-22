@@ -1,6 +1,6 @@
 {
-  "name": "devcontainer-python",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "name": "vscode-devcontainer-python",
+  "image": "mcr.microsoft.com/devcontainers/python:3.8-bullseye",
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
