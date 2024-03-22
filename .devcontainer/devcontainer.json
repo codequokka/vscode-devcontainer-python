@@ -1,6 +1,6 @@
 {
   "name": "vscode-devcontainer-python",
-  "image": "mcr.microsoft.com/devcontainers/python:3.8-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/python:3.8-bookworm",
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
@@ -15,13 +15,23 @@
   "customizations": {
     "vscode": {
       "settings": {
+        // Editor
         "editor.renderWhitespace": "all",
         "editor.formatOnSave": true,
+        // Remote
+        "remote.autoForwardPorts": false,
+        // Python
         "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.languageServer": "Pylance",
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.typeCheckingMode": "strict",
+        "python.analysis.completeFunctionParens": true,
         "python.testing.pytestArgs": ["tests", "--capture=tee-sys", "-vv"],
         "python.testing.pytestEnabled": true,
         "[python]": {
+          "editor.tabSize": 4,
           "editor.defaultFormatter": "charliermarsh.ruff",
+          // "editor.defaultFormatter": "ms-python.black-formatter",
           "editor.codeActionsOnSave": {
             "source.fixAll": "explicit",
             "source.organizeImports": "explicit"
@@ -30,6 +40,7 @@
         "coverage-gutters.showLineCoverage": true,
         "coverage-gutters.showRulerCoverage": true,
         "coverage-gutters.coverageFileNames": [".pytest_cache/coverage.xml"],
+        // Json
         "[json][jsonc]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.codeActionsOnSave": {
@@ -40,6 +51,8 @@
       "extensions": [
         "esbenp.prettier-vscode",
         "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.mypy-type-checker",
         "njpwerner.autodocstring",
         "charliermarsh.ruff",
         "ryanluker.vscode-coverage-gutters"

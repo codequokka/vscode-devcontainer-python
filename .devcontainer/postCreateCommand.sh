@@ -1,11 +1,17 @@
 #!/bin/sh
-# postCreateCommand.sh
 
-echo "START Install"
+echo "### Strat initial setup ###"
 
 sudo chown -R vscode:vscode .
 
-poetry config virtualenvs.in-project true
-poetry install
+# Poetry
+# poetry config virtualenvs.in-project true
+# poetry install
 
-echo "FINISH Install"
+# Pip
+python -m venv .venv
+. .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements-dev.txt
+
+echo "### Finish initial setup ###"
