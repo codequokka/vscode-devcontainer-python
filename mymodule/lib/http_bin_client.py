@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+from typing import Any, Callable, NoReturn
+
 import requests
 from requests import Response
-
-from typing import Any, Callable, NoReturn
 
 
 def handle_request_exceptions(func: Callable[..., Response]) -> Callable[..., Response]:
@@ -11,10 +11,11 @@ def handle_request_exceptions(func: Callable[..., Response]) -> Callable[..., Re
         try:
             response = func(*args, **kwargs)
             response.raise_for_status()
-            return response
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             raise
+        else:
+            return response
 
     return wrapper
 
@@ -31,4 +32,4 @@ class HttpBinClient(object):
 
     @handle_request_exceptions
     def get_ip(self) -> Response:
-        return self._make_request("i")
+        return self._make_request("ip")

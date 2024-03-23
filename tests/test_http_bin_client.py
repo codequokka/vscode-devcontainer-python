@@ -33,14 +33,12 @@ def test_get_ip_fail(mock_http_bin_client: Mock) -> None:
     assert str(exc_info.value) == "Request failed"
 
 
-# @patch("mymodule.lib.http_bin_client.HttpBinClient.get_ip")
-# def test_get_ip_failure_404(mock_http_bin_client: Mock) -> None:
-#     # モックが404応答を返すように設定
-#     mock_http_bin_client.return_value = {"status_code": 404, "error": "Not Found"}
+@patch("mymodule.lib.http_bin_client.HttpBinClient.get_ip")
+def test_get_ip_exception(mock_http_bin_client: Mock) -> None:
+    mock_http_bin_client.side_effect = requests.exceptions.RequestException
+    client = HttpBinClient()
 
-#     client = HttpBinClient()
-#     with pytest.raises(requests.exceptions.RequestException) as exc_info:
-#         client.get_ip()
+    with pytest.raises(requests.exceptions.RequestException) as e:
+        client.get_ip()
 
-#     # 404応答が返されることを確認
-#     assert str(exc_info.value) == "HTTP request returned 404: Not Found"
+    assert "Request failed" in str(e.value)
