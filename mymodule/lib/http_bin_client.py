@@ -8,5 +8,5 @@ class HttpBinClient(object):
     def __init__(self) -> None:
         self.session = requests.Session()
 
-    def ip(self) -> Response:
+    def get_ip(self) -> Response:
         return self.session.get(f"{self.BASE_URL}/ip")
