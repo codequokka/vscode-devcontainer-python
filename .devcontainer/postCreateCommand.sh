@@ -1,7 +1,6 @@
 #!/bin/sh
-# postCreateCommand.sh
 
-echo "Starting setup..."
+echo "### Strat initial setup ###"
 
 sudo chown -R vscode:vscode .
 
@@ -10,8 +9,9 @@ sudo chown -R vscode:vscode .
 # poetry install
 
 # Pip
-python3 -m venv .venv
+python -m venv .venv
 . .venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements-dev.txt
 
-echo "Finished setup"
+echo "### Finish initial setup ###"
